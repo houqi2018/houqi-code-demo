@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>534project</title>
+    <meta charSet=utf-8 "utf-8">
+    </meta>
+    <link rel="stylesheet" href="AllTemplates.min.css" tppabs="AllTemplates.min.css">
+    <link href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3999/reset_1.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    .section{
+      min-height: 100%;
+    }
+    .ct-btn-scroll {
+        width: 49px;
+        height: 49px;
+        position: absolute;
+        bottom: 0.5vh;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 9;
+        -webkit-transition: background-color 0.25s ease-in-out;
+        transition: background-color 0.25s ease-in-out;
+    }
+
+    #question1.highlight p {
+        font-weight: bold;
+        color: rgba(0,136,253,1.00)
+    }
+
+    #question2.highlight p {
+        font-weight: bold;
+        color: rgba(0,136,253,1.00)
+    }
+
+    #question3.highlight p {
+        font-weight: bold;
+        color: rgba(0,136,253,1.00)
+    }
+
+    #question4.highlight p {
+        font-weight: bold;
+        color: rgba(0,136,253,1.00)
+    }
+
+    #question5.highlight p {
+        font-weight: bold;
+        color: rgba(0,136,253,1.00)
+    }
+
+    #question6.highlight p {
+        font-weight: bold;
+        color: rgba(0,136,253,1.00)
+    }
+
+    #stickThis {
+        background-color: rgba(255,255,255,0.9);
+        border: 2px solid rgba(0,136,253,1.00);
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+    #stickThis.stick {
+        margin-top: 0;
+        position: fixed;
+        top: 0;
+        z-index: 9999;
+        -webkit-border-radius: 0 0 10px 10px;
+        border-radius: 0 0 10px 10px;
+    }
+    </style>
+    <script>
+    $(document).ready(function() {
+        $('.Question').click(function() {
+            $('.Solution').removeClass('highlight');
+            $('#' + $(this).data('color')).addClass("highlight");
+        });
+    });
+
+    function sticktothetop() {
+        var window_top = $(window).scrollTop();
+        var top = $('#stick-here').offset().top;
+        if (window_top > top) {
+            $('#stickThis').addClass('stick');
+            $('#stick-here').height($('#stickThis').outerHeight());
+        } else {
+            $('#stickThis').removeClass('stick');
+            $('#stick-here').height(0);
+        }
+    }
+    $(document).ready(function() {
+        $(window).scroll(sticktothetop);
+        sticktothetop();
+    });
+    </script>
+</head>
+
+<body class="font-neutral" style="height:100%;">
+    <div class="lightblue-white">
+        <header class="header">
+            <div class="container-lrg">
+                <div class="flex col-12 spread">
+                    <a href="index.html" tppabs="http://pages.cs.wisc.edu/~houqi/534/" class="logo primary-color  logo" data-vivaldi-spatnav-clickable="1">534project</a>
+                    <a href="#main-menu" id="menu" class="menu-toggle">
+              <b class="nav-link mr0 secondary-color">☰</b>
+            </a>
+                    <nav id="main-menu" role="navigation" class="main-menu" data-vivaldi-spatnav-clickable="1">
+                        <a href="#" id="main-menu-close" class="menu-close">
+                <span class="bold">✕</span>
+              </a>
+                        <!---->
+                        <a href="534Proposal.pdf" class="nav-link secondary-color">Project Proposal</a>
+                        <a href="534MidtermReport.pdf" class="nav-link secondary-color">Midterm Report</a>
+                        <a href="Presentation.pptx" class="nav-link secondary-color">Presentation</a>
+                        <a href="index.html#progress-1" tppabs="http://pages.cs.wisc.edu/~houqi/534/#feature-3" class="nav-link secondary-color">Progress</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <section class="section">
+            <div class="container mb40" >
+                <div class="col-12 text-center" >
+                    <h1 class="heading-lrg primary-color " data-vivaldi-spatnav-clickable="1">A Basketball Predictor</h1>
+                    <h2 class="subheading secondary-color mt20 " data-vivaldi-spatnav-clickable="1">We made a basketball predictor by teaching the machine to recognize basketball in a video and predict if it is a hit or miss. </h2>
+                </div>
+            </div>
+            <a class="ct-btn-scroll ct-js-btn-scroll" href="#motivation-1"><img alt="Arrow Down" src="arrow-down.png"></a>
+        </section>
+    </div>
+     <section id="motivation-1" class="section lightblue-white" sitemeta="[object Object]" activepage="Landing">
+        <div class="container text-center mb75">
+            <div class="col-12">
+                <h3 class="heading primary-color " data-vivaldi-spatnav-clickable="1">Motivation</h3>
+            </div>
+        </div>
+        <div class="container-lrg flex">
+            <div class="col-12">
+                <p class="paragraph secondary-color  text-center" data-vivaldi-spatnav-clickable="1">We are planning to make a basketball predictor that can predict where the basketball will land. We want to solve this because as sports fans, we find that it’s interesting to know if the basketball could be shot right into the basket before it lands. However, as human beings, our prediction is not that accurate. Therefore, we want to use the machine that has much better computing abilities to solve the problem. Our ultimate goal is to make the machine recognize basketball in a video and predict where the basketball will land when it just leaves the player’s hands.</p>
+            </div>
+        </div>
+        <a class="ct-btn-scroll ct-js-btn-scroll" href="#approach-1"><img alt="Arrow Down" src="arrow-down.png"></a>
+    </section>
+    
+    <section id="approach-1" class="section lightblue-white" sitemeta="[object Object]" activepage="Landing">
+        <div class="container text-center mb75">
+            <div class="col-12">
+                <h3 class="heading primary-color " data-vivaldi-spatnav-clickable="1">Rough Guideline</h3>
+            </div>
+        </div>
+        <div class="container-lrg flex">
+            <div class="col-12">
+               <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;xml&quot;:&quot;&lt;mxfile modified=\&quot;2018-12-04T16:48:16.803Z\&quot; host=\&quot;www.draw.io\&quot; agent=\&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.113 Safari/537.36 Vivaldi/2.1.1337.51\&quot; etag=\&quot;jwTznlP9EKDEuexjvXEQ\&quot; version=\&quot;9.5.7\&quot; type=\&quot;device\&quot;&gt;&lt;diagram name=\&quot;Page-1\&quot; id=\&quot;12e1b939-464a-85fe-373e-61e167be1490\&quot;&gt;7Vpdb6M4FP01eWzkDzDw2KZpd6RdaTVdaebVATcwBcwat0n3168NJnx2hqoM6XRopBZfOza+55zry6UrvEmOt4Jm4V88YPEKgeC4wtcrhCByoPqjLc+lxYbGsBdRYAbVhrvoP2aMwFgfo4DlrYGS81hGWdvo8zRlvmzZqBD80B52z+P2qhnds57hzqdxZV3btf1LFMjQ2CHx6o4/WLQPzeIuImXHjvoPe8EfU7PiCuH74qfsTmg1l9lqHtKAHxomvF3hjeBcllfJccNi7d3KceX3bl7oPe1HsFSO+QIBAXV33r2FiGUFmF6gcoYnGj+yagvFjcrnyj2HMJLsLqO+bh8UBVb4KpRJrFpQXRa7Z4FpnTYIdEMK/nDyKFaWe55KQwCkR9A42qeq4av7Z0IPiOJ4w2MuirXx1r3BN5vTVI0eAJyroqfvAuOVJyYkOzZMxiW3jCdMimc1xPQiYOAxBLaIaR9qMiDX2MIGDyAyzKGGgvvT3DUI6sLgMBIT3MNke5SCKuYrcguaKK3oC57oQUo6PO9hpjYu2zC1HZjylHW8bUw9RLQbIyWWS9ORREGgl7ka4kVNBtAlQxN6x7QbeLpb/anGmZ0M8Pv14EK7Da6H++DaA+BWJHgLtmHyT/706fNNeB3/a8FPX2/JtX0Be/j28GsC13RiQPPw5N7xUKk5Mj1zctzrEL4uoyZa6xWjnAWXuq2n1z4Ca6IvtfssvUzKpR9WIDIV0fRaapTVx7uldzgA+g9ZqJgAkes0lN1DeoAPL4JvA6cDvtcD33H72FvOz8J+BPi/RMB9EyykC4vtVWfwLCF3GJqhs5DEOo4G0ZO63Mti96Upz2ha2f7kPpVMpy0hK5KC/IHJHdVLloPV/TTHN8ytmT90EH8bYSqZnHSMhggzbxi3FinrJB52oCHgHWjZ/glaBjtORbBoeiJNQ4C6hzM+v6jdJfmeEGMESQtiB50/blfP4r933CbAbSFD3H5mPHPQRkO58aig/bdgQVRItIzaSrDfmC95sWE1iCYawPL3qZnu8qwduMfE81H344fMfyhKUaIo+uj6znJsTJUK4m5IOXdA6RdsfsOAohLBNjDEm7OKNozMUIo+SsEbGvuPcZkJZuFzrhVTTCQiuot1ErDIeaossH0QOejc9bmquP9e9XxJ9GdIz6T4mUbP3aK4kvP5n+uqJ4YBQWffk/NnljFa5geRTuAzwX2W5/URrTJ5fb9psCpf6hTZPTvkr88Wsg+keuzqzzzPBWcWPR6qGCxV+X5VXnBJZcT1Ti48ME2swaD9joZUZfIGHap3sbOU6XG/DLCw4QdsmIoMEEJn3eVD/+SZlQ/WiJrBwodp8Pcq8dfv7AYSj1nf2lnLK9vXHw7Q8aYhhA26T/znJwRaCHE+QnjAm48Qqln/f1bR1/g3OLz9Hw==&lt;/diagram&gt;&lt;/mxfile&gt;&quot;,&quot;toolbar&quot;:&quot;pages zoom layers lightbox&quot;,&quot;page&quot;:0}"></div>
+				<script type="text/javascript" src="https://www.draw.io/js/viewer.min.js"></script>
+            </div>
+		</div>
+       <br><br>
+        <a class="ct-btn-scroll ct-js-btn-scroll" href="#code-1"><img alt="Arrow Down" src="arrow-down.png"></a>
+    </section>
+    
+    <section id="code-1" class="section lightblue-white" sitemeta="[object Object]" activepage="Landing">
+        <div class="container text-center mb35">
+            <h3 class="heading primary-color " data-vivaldi-spatnav-clickable="1">Implementation</h3>
+            <p class="subheading secondary-color mt15  text-center" data-vivaldi-spatnav-clickable="1">You can also download code at <a href="https://github.com/houqi2018/wisc.github.io/tree/master/project%20code"><u>Github</u></a></p><br>
+            <script src="https://gist.github.com/houqi2018/e8454d42c1b2789611206d714c2373c7.js"></script>
+        </div>
+        <a class="ct-btn-scroll ct-js-btn-scroll" href="#result-1"><img alt="Arrow Down" src="arrow-down.png"></a>
+    </section>
+    
+    <section id="result-1" class="section lightblue-white" sitemeta="[object Object]" activepage="Landing">
+        <div class="container text-center mb35">
+            <h3 class="heading primary-color " data-vivaldi-spatnav-clickable="1">Result</h3>
+        </div>
+        <div class="container-lrg flex text-center">
+            <div class="col-6" data-vivaldi-spatnav-clickable="1">
+                <p class="subheading secondary-color mt15  text-center" data-vivaldi-spatnav-clickable="1">Training Case</p><br>
+                <iframe width="448" height="252" src="https://www.youtube.com/embed/ZNop223KcqU" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="col-6">
+                <p class="subheading secondary-color mt15  text-center" data-vivaldi-spatnav-clickable="1">Testing Case</p><br>
+                <iframe width="448" height="252" src="https://www.youtube.com/embed/mRduIXN-Cj0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+		</div>
+           <br><br>
+            <div class="container-lrg flex text-center">
+             <div class="col-6">
+                <p class="subheading secondary-color mt15  text-center" data-vivaldi-spatnav-clickable="1">Back View</p>
+                <img src="result_img/back_result.png" alt="back_result" width="75%">
+            </div>
+            <div class="col-6">
+                <p class="subheading secondary-color mt15  text-center" data-vivaldi-spatnav-clickable="1">Side View</p>
+                <img src="result_img/side_result.png" alt="side1_result">
+            </div>
+        </div>
+        <br>
+        <a class="ct-btn-scroll ct-js-btn-scroll" href="#team-1"><img alt="Arrow Down" src="arrow-down.png"></a>
+    </section>
+    
+    
+    <section id="team-1" class="section lightblue-white" sitemeta="[object Object]" activepage="Landing">
+        <div class="container text-center mb35">
+            <h3 class="heading primary-color " data-vivaldi-spatnav-clickable="1">Team</h3>
+            <p class="subheading secondary-color mt20 " data-vivaldi-spatnav-clickable="1">We have four members in the team. We are guided by Mohit Gupta, professor of Computational Photography at UW-Madison.</p>
+        </div>
+        <div class="container-lrg flex wrap text-center">
+            <div class="col-3" data-vivaldi-spatnav-clickable="1">
+                <div>
+                    <b class="bold primary-color">Chentao Wang&nbsp;&nbsp;</b>
+                    <p class="paragraph primary-color mt10">Team member</p>
+                    <br>
+                    <a href="mailto:cwang556@wisc.edu" class="socialicons accent-bg email"></a>
+                </div>
+            </div>
+            <div class="col-3" data-vivaldi-spatnav-clickable="1">
+                <div>
+                    <b class="bold primary-color">Haozhe Luo&nbsp;&nbsp;</b>
+                    <p class="paragraph primary-color mt10">Team member</p>
+                    <br>
+                    <a href="mailto:hluo45@wisc.edu" class="socialicons accent-bg email"></a>
+                </div>
+            </div>
+            <div class="col-3" data-vivaldi-spatnav-clickable="1">
+                <div>
+                    <b class="bold primary-color">Xiaohan Sun&nbsp;&nbsp;</b>
+                    <p class="paragraph primary-color mt10">Team member</p>
+                    <br>
+                    <a href="mailto:xsun233@wisc.edu" class="socialicons accent-bg email"></a>
+                </div>
+            </div>
+            <div class="col-3" data-vivaldi-spatnav-clickable="1">
+                <div>
+                    <b class="bold primary-color">Houqi Li&nbsp;&nbsp;</b>
+                    <p class="paragraph primary-color mt10">Team member</p>
+                    <br>
+                    <a href="mailto:hli492@wisc.edu" class="socialicons accent-bg email"></a>
+                </div>
+            </div>
+        </div>
+        <a class="ct-btn-scroll ct-js-btn-scroll" href="#timeline-1"><img alt="Arrow Down" src="arrow-down.png"></a>
+    </section>
+    <section id="timeline-1" class="section lightblue-white" sitemeta="[object Object]" activepage="Landing">
+        <div class="container text-center mb75">
+            <div class="col-12">
+                <h3 class="heading primary-color " data-vivaldi-spatnav-clickable="1">Timeline</h3>
+            </div>
+        </div>
+        <div class="container flex">
+            <table>
+                <h1><tr>
+      <td border="1px" width="70%"><b><h3 class="bold primary-color " data-vivaldi-spatnav-clickable="1">Task</h3></b></td>
+      <td border="1px" width="30%"><b><h3 class="bold primary-color " data-vivaldi-spatnav-clickable="1">Time</h3></b></td>
+      </tr>
+      </h1>
+                <tbody>
+                    <tr>
+                        <td width="70%">
+                            <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">1. Take videos, divide into individual frames, and locate ball</p>
+                        </td>
+                        <td width="30%">
+                            <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">Sept - Early Oct</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">2. Track and record the positions of the ball</p>
+                        </td>
+                        <td>
+                            <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">Mid Oct - Early Nov</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">3. Build a mathematical model to predict the initial velocity (including direction) and the acceleration of the ball.</p>
+                        </td>
+                        <td>
+                            <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">Early Nov - Late Nov</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">4. Compute and print the projectile. Also build the website and prepare for the presentation.</p>
+                        </td>
+                        <td>
+                            <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">Late Nov - Early Dec</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!---->
+        <br><br>
+        <a class="ct-btn-scroll ct-js-btn-scroll" href="#feature-4"><img alt="Arrow Down" src="arrow-down.png"></a>
+    </section>
+    <section id="feature-4" class="section lightblue-white" sitemeta="[object Object]" activepage="Landing">
+        <div class="container text-center mb75">
+            <div class="col-12">
+                <h3 class="heading primary-color " data-vivaldi-spatnav-clickable="1">State-of-the-art</h3>
+                <p class="subheading secondary-color mt20 " data-vivaldi-spatnav-clickable="1">Referenced from latest scientific research paper in the industry.</p>
+            </div>
+        </div>
+        <div class="container-lrg flex">
+            <div class="col-6">
+                <!---->
+                <h3 class="bold primary-color " data-vivaldi-spatnav-clickable="1"><a href="http://projects.rajivshah.com/sportvu/Traj_RNN.html"><u>Deep Learning</u></a> &amp; <a href="https://arxiv.org/abs/1708.05824"><u>Bidirection LSTM and Mixture Density Network</u></a></h3>
+                <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">Yu Zhao, Rennong Yang, Guillaume Chevalier, Rajiv Shah, and Rob Romijnders used Deep Bidirectional LSTM and Mixture Density Network with RNN models to predict basketball trajectories by relying solely on the movement data. This method can predict
+                    a basketball shoot is a make or a miss. They have different models for different distances from the basket. The speed and the accuracy of the trajectory of their model was said to outperform others. This method can help coaches and players
+                    to decide when and where to shoot.</p>
+            </div>
+            <div class="col-6">
+                <!---->
+                <h3 class="bold primary-color " data-vivaldi-spatnav-clickable="1"><a href="https://pdfs.semanticscholar.org/2586/0bd7f6b4d5bdf6a1101dc6cded0affe4d392.pdf"><u>Two Dimensional Basketball Localization and Location Prediction</u></a></h3>
+                <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">Jerry Giese and Matthew Wilson built a method to localize the trajectory of basketball shoots in two dimensional. The method contains image stabilization to get rid of camera shakes, Hough transforms to track the center of the ball, and then
+                    use the tracked coordinates of the center to predict the trajectory by using total least squares fit. For the tracking part, they used a Matlab function called "imfindcircles" which using Hough transform. They improved the method by adding
+                    priority to circles near the position of the ball from last frame and initializing with a manually-added position of the ball in the first frame. They used the first three to fifteen frames to fit a parabola to predict the trajectory. The
+                    method they used can predict the trajectory within three tenth of a second and do well with cluttered background. Several issues are: 1. It's just for 2D. 2. With low light, the basketball will become blurred and hard to predict. 3. Ignore
+                    the complexity of the shot will make or miss but just focus on if the parabola will cross the center of the hoop instead. Some statistical models may be needed.</p>
+            </div>
+        </div>
+        <a class="ct-btn-scroll ct-js-btn-scroll" href="#progress-1"><img alt="Arrow Down" src="arrow-down.png"></a>
+    </section>
+    <section id="progress-1" class="section lightblue-white" sitemeta="[object Object]" activepage="Landing">
+        <div class="container text-center mb75">
+            <div class="col-12">
+                <h3 class="heading primary-color " data-vivaldi-spatnav-clickable="1" id="question1mark">Progress</h3>
+                <h5 id="question4mark"></h5>
+            </div>
+        </div>
+        <div class="container-lrg flex" style="top:-60px; left:18vw; min-width:50vw;">
+            <div id="stick-here">
+                <div class="col-12" id="stickThis">
+                    <h3> Problems we've faced and solved:</h3>
+                    <h4 class="secondary-color ">
+                          <ol class="Question" data-color="question1"><i><a href="index.html#question1mark">Q: How to extract frames from videos?</a></i></ol>
+                          <ol class="Question" data-color="question2"><i><a href="index.html#question2mark">Q: How to locate the ball easily?</a></i></ol>
+                          <ol class="Question" data-color="question3"><i><a href="index.html#question3mark">Q: What's our advance compared to other solutions? &nbsp;</a></i></ol>
+                          <ol class="Question" data-color="question4"><i><a href="index.html#question4mark">Q: How to detect edge of basketball board?</a></i></ol>
+                          <ol class="Question" data-color="question5"><i><a href="index.html#question5mark">Q: Why did we hardcode?</a></i></ol>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br>
+        <div class="Solution container-lrg flex">
+            <div class="col-6">
+                <h3 class="bold primary-color " data-vivaldi-spatnav-clickable="1">Updated 10.14.18</h3>
+                <span id="question1" class="Solution">
+          <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1" >We extracted frames from slow motion video (1/24 second per frame) using Videoreader provided by Matlab and did analysis based on the image.</p> </span>
+                <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1"> We wrote the part that tracks the ball and set up the threshold to reduce impact of noise, which fastens the process to locate the
+                    ball. </p>
+                <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">We also decided to use physics formula and use relationship of velocity and acceleration to compute the distance in corresponding time to see if the ball will hit the basket. Mathematical formula may not work in our case.</p>
+                <h3 class="bold primary-color " data-vivaldi-spatnav-clickable="1">Updated 10.27.18</h3>
+                <p id="question2mark" class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">We decided to use tripod to take videos from a static point. Videos are to be slow-motion to ensure quality and only in this way the ball can keep its circular shape. Since the board is fixed in the video, we can then locate the center of basket
+                    board only once and keep using that x, y coordinates. Next time we need to apply physics formula and compute the result from two angles.</p>   
+                <h3 id="question3mark" class="bold primary-color " data-vivaldi-spatnav-clickable="1">Updated 10.30.18</h3>
+                <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">We finished Mid-term Report. You can view it by clicking on the Navigation bar.</p>
+                <h3 class="bold primary-color " data-vivaldi-spatnav-clickable="1">Updated 11.18.18</h3>
+                <span id="question2" class="Solution">
+          <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">We changed approach to detect the ball and used Background Subtraction to track its locations. This works in both normal and slow-motion videos.</p>
+          </span>
+                <span id="question3" class="Solution">
+          <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">We are also writing a script using physics formula to check if the ball is a hit or miss. Becasue of analyzing videos from 2 angles, this physics formula helps us build a 3D model. This is an improvement on current state-of-the-art which generally uses 2D models. However, we still have issue with back view, since there are many noises. 
+        </p></span>
+                <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">We also need to come up with an idea how to extract 4 clear frames in which the ball is detached from player's hands. That is to say, remove the first few frames in which the ball is still held by the player in Matlab code instead of subjective judgement. Moreover, the location of the board is also needed, which will be pluged in the physics formula later.</p>
+            </div>
+            <div class="col-6">
+                <h3 class="bold primary-color " data-vivaldi-spatnav-clickable="1">Updated 12.1.18</h3>
+                <span id="question4" class="Solution">
+          <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">First, we used "edge" and "dilate" to find rough frames of the basketball board by comparing with an image of the frame of the basketball board that we got in advance. We compared the frames by matching the roundness, similar to process in HW2. Then we hardcoded to move the detected basketball board's center to right a little bit to find the height of the basketball board by tracing the edge of the board, so we got the number of pixels for the basketball board's edge. </p></span>
+                <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">We found the actual height of a regulated backboard is <i>1.1</i> meters from <a href="https://en.wikipedia.org/wiki/Backboard_(basketball)"><u>Wikipedia</u></a>. Then we used ratio between pixels and meters of the centain scenario to calculate the gravity acceleration in pixels. We assumed the process of the ball flying in the sky as a free fall, so we used a physics formula to calculate the starting velocity in <i>x-axis</i> and <i>y-axis</i>:</p> <pre><i>x_velocity = (coordinates(1,1) - coordinates(2,1))/time</i></pre><pre><i>y_velocity = (coordinates(1,2) - coordinates(2,2) - 0.5 * g * time * time)/time</i></pre>
+                <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">The coordinates were highest two balls' positions that we calculated previously. The time was calculated based on the frame of the video and the interval between two frames: <i>1*4/30 = 0.13</i>. The <i>g</i> is the gravity acceleration we just calculated. Then by calculating the displacement vertically <i>(goal.y - coordinates.y)</i>, we use another physics formula to calculate the time the ball needs to get to the height of the hoop (ignore the air resistance): </p><pre><i>time_need = (-y_velocity + sqrt(y_velocity * y_velocity + 2 * g * y_dist))/g</i></pre>
+                <p id="question5mark" class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1"> Then because the ball moves as a uniform motion horizontally, we can calculate the x position of the ball when the ball falls at the same height of the hoop. We allow a certain error range for x position of the ball (<i>&plusmn; 20 pixels</i>, which is almost the same as the diameter of the ball) and view all balls fall within this range to be a "shoot".</p>
+                <span id="question5" class="Solution"><p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">The reason we hardcoded is it is really complicated if we only used physics to predict the ball's trajectory. The way the ball falls into the hoop could be various depending on different angles and different velocities. The potential collisions between balls and hoops (or backboards) make this way too complicated to predict by using physics. (this probably could be saved with a large number of videos to train a model with deep learning).</p></span>
+                <p class="paragraph secondary-color " data-vivaldi-spatnav-clickable="1">Using Background Split again, we detect the location of ball in the back view. Then, we pinpoint the location of board by morphing the image and finding the baord's center and get a range that will ensure a hit. If the ball is within the range, we call it a hit. If the ball from both views are hit, then the result is a successful hit.</p>
+            </div>
+        </div>
+        <br><br><br>
+    </section>
+</body>
+<footer><br>
+    <p align="center" style="color: dimgray">Last edited 12.3.18</p><br>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="scroll-down.js"></script>
+
+</html>
