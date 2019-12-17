@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Traffic {% endblock %}
+{% block content %}
+<br>
+<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Traffic</h4>
+<br>
+
+<form action="{% url 'addCounter' %}" method="post">
+    {% csrf_token %}
+
+    <div class="container">
+        {% if messages %}
+        <div class="messages">
+            {% for msg in messages %}
+                <div class="alert alert-{{msg.level_tag}}" role="alert">
+                    {{ msg.message }}
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label>Enter daily traffic (Summary page will be updated)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            {{ form.counter }}
+        </div>
+
+         <input type="submit" value="Update Traffic" class="btn btn-primary"></input>
+    </div>
+</form>
+
+{% endblock %}

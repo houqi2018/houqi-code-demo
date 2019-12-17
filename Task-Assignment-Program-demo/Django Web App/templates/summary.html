@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %} Summary {% endblock %}
+
+{% block content %}
+<br>
+<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Summary of today
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Daily Traffic: {{ dailytraffic }}</h4>
+
+<br>
+
+
+<div id="left">
+    <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;Advisor List</h4>
+    <table class="table-bordered">
+        <tr>
+            <td width="100px" align="center">Name</td>
+            <td width="100px" align="center">Count</td>
+      </tr>
+        {% for adv in advisor_list %}
+            <tr>
+                <td width="100px" align="center">{{ adv.advisor_name }}</td>
+                <td width="100px" align="center">{{ adv.advisor_count }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Sum: {{ sum1 }}</p>
+</div>
+
+<div id="right">
+    <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Task List</h4>
+    <table class="table-bordered">
+        <tr>
+            <td width="100px" align="center">Task Name</td>
+            <td width="100px" align="center">Count</td>
+        </tr>
+        {% for t in task_list %}
+             <tr>
+                 <td width="200px" align="center">{{ t.task_name }}</td>
+                 <td width="100px" align="center">{{ t.task_num }}</td>
+             </tr>
+        {% endfor %}
+    </table>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Sum: {{ sum2 }}</p>
+</div>
+<br>
+
+{% endblock %}
