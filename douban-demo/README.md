@@ -16,4 +16,4 @@ Average: 9.8 %
 Total:   386  
 
 ![alt text](https://github.com/houqi2018/houqi-code-demo/blob/master/douban-demo/result1.png?raw=true)
-![alt text]( ![result2.png](https://github.com/houqi2018/houqi-code-demo/blob/master/douban-demo/result2.png?raw=true) )
+![alt text](https://github.com/houqi2018/houqi-code-demo/blob/master/douban-demo/result2.png?raw=true)
