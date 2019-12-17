@@ -1,0 +1,14 @@
+{% extends "app_base.html" %}
+{% block content %}
+{# include the first two lines above to extend the app_base template #}
+  <h3>Home</h3>
+  <h4>Welcome! Please selection an option:</h4>
+  <ul>
+  <li><a href="currtime">Current Time</a></li>
+  <li><a href="selecttime">Select a Time</a></li>
+  <li><a href="search">Search</a></li>
+  <li><a href="item_detail">Find Details</a></li>
+  <li><a href="add_bid">Add bid</a></li>
+  </ul>
+{# also make sure to include this very last line as well #}
+{% endblock %}

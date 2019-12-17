@@ -1,0 +1,32 @@
+{% extends "app_base.html" %}
+{% block content %}
+<h3> Find Details </h3>
+
+<form method="POST" action="item_detail" role="form" style="max-width:400px; width:100%">
+	{% if message is defined %}
+	<div class="alert alert-info" role="alert">{{ message }}</div>
+	{% endif %}
+	<div class="form-group">
+	  <label for="itemID">Item ID</label>
+	  <input type="text" class="form-control" id="itemID" name="itemID" />
+	</div>
+	<div><input type="submit" value="Submit" class="btn btn-primary" /></div>
+</form>
+<h3>Details</h3>
+<ul>
+{% if detail %}
+{% for result in detail %}
+	{% for key in result %}
+		<div>
+			<span>{{ key|e }}</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<span>{{ result[key]|e }}</span>
+		</div>
+  	{% endfor %}
+{% endfor %}
+{% else %}
+<div>No details</div>
+{% endif %}
+</ul>
+
+{% endblock %}
