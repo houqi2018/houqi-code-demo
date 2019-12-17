@@ -15,5 +15,5 @@ Second half average (194-386): 10.8 %
 Average: 9.8 %  
 Total:   386  
 
-![alt text](https://github.com/houqi2018/houqi-code-demo/blob/master/douban-demo/result1.png?raw=true)
-![alt text](https://github.com/houqi2018/houqi-code-demo/blob/master/douban-demo/result2.png?raw=true)
+![alt text](https://github.com/houqi2018/houqi-code-demo/blob/master/Douban-demo/result1.png?raw=true)
+![alt text](https://github.com/houqi2018/houqi-code-demo/blob/master/Douban-demo/result2.png?raw=true)
