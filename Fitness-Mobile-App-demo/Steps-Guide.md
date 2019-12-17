@@ -1,4 +1,4 @@
-# Fitness-Mobile-App Step Guide
+# Fitness-Mobile-App Steps Guide
 
 ## Fitness/Tracking API
 
